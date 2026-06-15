@@ -1,0 +1,81 @@
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-title">Let's Work<br />Together</h2>
+      <p class="section-subtitle">Have a project in mind or an opportunity to discuss? I'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <h3>Contact Information</h3>
+        <p>I'm currently looking for Backend Developer opportunities. Feel free to reach out — whether for a job, collaboration, or just a chat about tech.</p>
+
+        <div class="contact-links">
+          <a href="mailto:<%= site.profile.email %>" class="contact-link-item">
+            <div class="contact-link-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-value"><%= site.profile.email %></div>
+            </div>
+          </a>
+          <a href="<%= site.profile.github %>" target="_blank" rel="noopener" class="contact-link-item">
+            <div class="contact-link-icon"><i class="fab fa-github"></i></div>
+            <div>
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-value">@<%= site.profile.github.split('/').pop() %></div>
+            </div>
+          </a>
+          <a href="<%= site.profile.linkedin %>" target="_blank" rel="noopener" class="contact-link-item">
+            <div class="contact-link-icon"><i class="fab fa-linkedin-in"></i></div>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-value"><%= site.profile.linkedin.split('/').pop() %></div>
+            </div>
+          </a>
+          <a href="<%= site.profile.facebook %>" target="_blank" rel="noopener" class="contact-link-item">
+            <div class="contact-link-icon"><i class="fab fa-facebook-f"></i></div>
+            <div>
+              <div class="contact-link-label">Facebook</div>
+              <div class="contact-link-value"><%= site.profile.facebook.split('/').pop() %></div>
+            </div>
+          </a>
+          <a href="<%= site.profile.cvUrl %>" class="contact-link-item" download>
+            <div class="contact-link-icon"><i class="fa-solid fa-file-arrow-down"></i></div>
+            <div>
+              <div class="contact-link-label">Download CV</div>
+              <div class="contact-link-value">PDF format</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form reveal-right">
+        <form id="contactForm" novalidate>
+          <div id="contactAlert" class="form-alert"></div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name *</label>
+              <input type="text" class="form-input" id="name" name="name" required placeholder="John Doe" />
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email *</label>
+              <input type="email" class="form-input" id="email" name="email" required placeholder="john@example.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" class="form-input" id="subject" name="subject" placeholder="Backend Developer Opportunity" />
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message *</label>
+            <textarea class="form-textarea" id="message" name="message" required placeholder="Tell me about your project or opportunity..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="contactSubmit" style="width:100%;justify-content:center">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

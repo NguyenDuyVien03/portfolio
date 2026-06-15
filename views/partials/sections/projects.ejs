@@ -1,0 +1,55 @@
+<section id="projects" class="section projects-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Featured Projects</span>
+      <h2 class="section-title">What I've<br />Built</h2>
+      <p class="section-subtitle">Real projects that demonstrate my ability to design, build, and ship backend systems.</p>
+    </div>
+
+    <div class="projects-grid">
+      <% site.projects.forEach(function(project, i) { %>
+        <article class="project-card reveal<%= project.featured ? ' featured' : '' %>" style="transition-delay:<%= i * 0.1 %>s">
+          <div class="project-card-image">
+            <img src="<%= project.image %>" alt="<%= project.name %>" loading="lazy" />
+            <div class="project-card-image-overlay"></div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-type">
+              <% if (project.featured) { %><i class="fa-solid fa-star"></i><% } %>
+              <%= project.type %>
+            </div>
+            <h3 class="project-name"><%= project.name %></h3>
+            <p class="project-role"><i class="fa-solid fa-user-tie"></i> <%= project.role %> · <%= project.period %></p>
+            <p class="project-desc"><%= project.shortDesc %></p>
+            <div class="project-tech">
+              <% project.tech.forEach(function(t) { %>
+                <span class="project-tech-tag"><%= t %></span>
+              <% }); %>
+            </div>
+            <div class="project-features-list">
+              <% project.features.slice(0, 3).forEach(function(f) { %>
+                <div class="project-feature-item">
+                  <i class="fa-solid fa-angle-right"></i>
+                  <span><%= f %></span>
+                </div>
+              <% }); %>
+            </div>
+            <div class="project-actions">
+              <a href="/projects/<%= project.slug %>" class="btn btn-primary">
+                <i class="fa-solid fa-book-open"></i> Case Study
+              </a>
+              <a href="<%= project.github %>" class="btn btn-outline" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <% if (project.demo) { %>
+                <a href="<%= project.demo %>" class="btn btn-outline" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+                </a>
+              <% } %>
+            </div>
+          </div>
+        </article>
+      <% }); %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<section id="skills" class="section skills-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Tech Stack</span>
+      <h2 class="section-title">Technology<br />Dashboard</h2>
+      <p class="section-subtitle">Technologies I work with — from backend frameworks to databases and dev tools.</p>
+    </div>
+
+    <div class="skills-grid">
+      <% site.skillGroups.forEach(function(group) { %>
+        <div class="skill-group reveal" style="transition-delay:0.1s">
+          <div class="skill-group-header">
+            <div class="skill-group-icon">
+              <i class="fas <%= group.icon %>"></i>
+            </div>
+            <div class="skill-group-title"><%= group.title %></div>
+          </div>
+          <div class="skill-items">
+            <% group.items.forEach(function(item) { %>
+              <span class="skill-badge">
+                <span class="skill-badge-icon"><i class="fas fa-hashtag"></i></span>
+                <%= item.name %>
+              </span>
+            <% }); %>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>

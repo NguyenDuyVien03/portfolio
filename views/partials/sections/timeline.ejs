@@ -1,0 +1,36 @@
+<section id="experience" class="section experience-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Journey</span>
+      <h2 class="section-title">Development<br />Timeline</h2>
+      <p class="section-subtitle">My path from a tech student to a backend developer — a continuous journey of growth.</p>
+    </div>
+
+    <div class="timeline-container">
+      <svg class="timeline-svg" viewBox="0 0 900 100%" preserveAspectRatio="xMidYMid meet">
+        <path id="timelinePath" d="M450,0 C600,100 300,200 450,300 C600,400 300,500 450,600 C600,700 300,800 450,900" />
+      </svg>
+
+      <div class="timeline-items">
+        <% site.timeline.forEach(function(item, i) { %>
+          <div class="timeline-item <%= i % 2 === 0 ? 'left' : 'right' %> reveal">
+            <div class="timeline-item-content">
+              <div class="timeline-item-icon"><i class="fas <%= item.icon %>"></i></div>
+              <div class="timeline-item-title"><%= item.label %></div>
+              <div class="timeline-item-year"><%= item.year %></div>
+              <ul class="timeline-item-desc">
+                <% item.events.forEach(function(ev) { %>
+                  <li><%= ev %></li>
+                <% }); %>
+              </ul>
+            </div>
+            <div class="timeline-item-center">
+              <div class="timeline-dot"><div class="timeline-dot-glow"></div></div>
+            </div>
+            <div></div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,173 @@
+<section class="case-study-hero">
+  <div class="case-study-hero-bg"></div>
+  <div class="container">
+    <div class="case-study-breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/#projects">Projects</a>
+      <span>/</span>
+      <span><%= project.title %></span>
+    </div>
+
+    <h1 class="case-study-title reveal"><%= project.title %></h1>
+
+    <div class="case-study-meta reveal" style="transition-delay:0.1s">
+      <% if (summary.type) { %>
+        <span class="case-study-meta-item"><i class="fa-solid fa-tag"></i> <%= summary.type %></span>
+      <% } %>
+      <span class="case-study-meta-item"><i class="fa-solid fa-user-tie"></i> <%= summary.role %></span>
+      <span class="case-study-meta-item"><i class="fa-regular fa-calendar"></i> <%= summary.period %></span>
+    </div>
+
+    <div class="case-study-tech reveal" style="transition-delay:0.15s">
+      <% project.tech.forEach(function(t) { %>
+        <span class="case-study-tech-tag"><%= t %></span>
+      <% }); %>
+    </div>
+
+    <p class="case-study-overview reveal" style="transition-delay:0.2s"><%= project.overview %></p>
+  </div>
+</section>
+
+<section class="case-study-body">
+  <div class="container">
+    <div class="row" style="display:grid;grid-template-columns: 2fr 1fr;gap:60px">
+      <div class="case-study-main">
+
+        <% if (project.problem) { %>
+          <div class="case-study-section reveal">
+            <h2 class="case-study-section-title"><i class="fa-solid fa-circle-exclamation"></i> Problem</h2>
+            <div class="case-study-section-content"><%= project.problem %></div>
+          </div>
+        <% } %>
+
+        <% if (project.requirements && project.requirements.length > 0) { %>
+          <div class="case-study-section reveal">
+            <h2 class="case-study-section-title"><i class="fa-solid fa-list-check"></i> Requirements</h2>
+            <ul class="case-study-list">
+              <% project.requirements.forEach(function(r) { %>
+                <li><%= r %></li>
+              <% }); %>
+            </ul>
+          </div>
+        <% } %>
+
+        <% if (project.architecture && project.architecture.summary) { %>
+          <div class="case-study-section reveal">
+            <h2 class="case-study-section-title"><i class="fa-solid fa-sitemap"></i> System Architecture</h2>
+            <div class="case-study-section-content">
+              <p><%= project.architecture.summary %></p>
+            </div>
+            <% if (project.architecture.flow && project.architecture.flow.length > 0) { %>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;align-items:center">
+                <% project.architecture.flow.forEach(function(step, idx) { %>
+                  <span class="case-study-tech-tag" style="background:rgba(139,92,246,0.08);border-color:rgba(139,92,246,0.2)"><%= step.from %></span>
+                  <span style="color:var(--text-tertiary);font-size:0.75rem"><i class="fa-solid fa-arrow-right"></i></span>
+                  <span class="case-study-tech-tag" style="background:rgba(139,92,246,0.08);border-color:rgba(139,92,246,0.2)"><%= step.to %></span>
+                  <% if (step.label) { %>
+                    <span style="color:var(--text-tertiary);font-size:0.7rem;font-style:italic">(<%= step.label %>)</span>
+                  <% } %>
+                  <% if (idx < project.architecture.flow.length - 1) { %>
+                    <div style="width:100%;height:4px"></div>
+                  <% } %>
+                <% }); %>
+              </div>
+            <% } %>
+          </div>
+        <% } %>
+
+        <% if (project.database && project.database.length > 0) { %>
+          <div class="case-study-section reveal">
+            <h2 class="case-study-section-title"><i class="fa-solid fa-database"></i> Database Design</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+              <% project.database.forEach(function(t) { %>
+                <div style="padding:16px;border-radius:12px;border:1px solid var(--border-color);background:var(--bg-card)">
+                  <div style="font-weight:600;font-size:0.9rem;color:var(--text-primary);margin-bottom:4px"><%= t.name %></div>
+                  <div style="font-size:0.8rem;color:var(--text-secondary)"><%= t.description %></div>
+                </div>
+              <% }); %>
+            </div>
+          </div>
+        <% } %>
+
+        <% if (project.apiEndpoints && project.apiEndpoints.length > 0) { %>
+          <div class="case-study-section reveal">
+            <h2 class="case-study-section-title"><i class="fa-solid fa-code"></i> API Endpoints</h2>
+            <div style="overflow-x:auto">
+              <table class="case-study-api-table">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>Endpoint</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% project.apiEndpoints.forEach(function(ep) { %>
+                    <tr>
+                      <td><span class="method method-<%= ep.method.toLowerCase() %>"><%= ep.method %></span></td>
+                      <td><code><%= ep.path %></code></td>
+                      <td><%= ep.description %></td>
+                    </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        <% } %>
+
+        <% if (project.challenges && project.challenges.length > 0) { %>
+          <div class="case-study-section reveal">
+            <h2 class="case-study-section-title"><i class="fa-solid fa-triangle-exclamation"></i> Challenges & Solutions</h2>
+            <ul class="case-study-list">
+              <% project.challenges.forEach(function(c) { %>
+                <li><%= c %></li>
+              <% }); %>
+            </ul>
+          </div>
+        <% } %>
+
+        <% if (project.results && project.results.length > 0) { %>
+          <div class="case-study-section reveal">
+            <h2 class="case-study-section-title"><i class="fa-solid fa-trophy"></i> Results</h2>
+            <ul class="case-study-list">
+              <% project.results.forEach(function(r) { %>
+                <li><i class="fa-solid fa-check" style="color:var(--accent);margin-right:8px"></i><%= r %></li>
+              <% }); %>
+            </ul>
+          </div>
+        <% } %>
+
+      </div>
+
+      <div class="case-study-sidebar">
+        <div class="reveal">
+          <img src="<%= summary.image %>" alt="<%= project.title %>" class="case-study-image" />
+
+          <div style="margin-bottom:24px;padding:20px;border-radius:16px;border:1px solid var(--border-color);background:var(--bg-card)">
+            <h3 style="font-size:0.9rem;font-weight:600;margin-bottom:12px">Project Info</h3>
+            <div style="display:flex;flex-direction:column;gap:8px;font-size:0.85rem">
+              <div><span style="color:var(--text-tertiary)">Type:</span> <%= summary.type %></div>
+              <div><span style="color:var(--text-tertiary)">Role:</span> <%= summary.role %></div>
+              <div><span style="color:var(--text-tertiary)">Period:</span> <%= summary.period %></div>
+            </div>
+          </div>
+
+          <div class="case-study-actions">
+            <a href="<%= summary.github %>" class="btn btn-primary" target="_blank" rel="noopener" style="justify-content:center">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+            <% if (summary.demo) { %>
+              <a href="<%= summary.demo %>" class="btn btn-outline" target="_blank" rel="noopener" style="justify-content:center">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+              </a>
+            <% } %>
+            <a href="/#projects" class="btn btn-ghost" style="justify-content:center">
+              <i class="fa-solid fa-arrow-left"></i> Back to Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,55 @@
+<section id="hero" class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge reveal">
+          <span class="hero-badge-dot"></span>
+          Available for opportunities
+        </div>
+
+        <h1 class="hero-name reveal" style="transition-delay:0.1s">
+          <span class="hero-name-accent"><%= site.profile.name %></span>
+        </h1>
+
+        <div class="hero-title reveal" style="transition-delay:0.2s">
+          <span id="typed-text"></span><span class="terminal-cursor"></span>
+        </div>
+
+        <p class="hero-desc reveal" style="transition-delay:0.3s">
+          I build web systems, REST APIs, and backend architectures — turning complex requirements into scalable, maintainable solutions. Passionate about clean code, database design, and system optimization.
+        </p>
+
+        <div class="hero-actions reveal" style="transition-delay:0.4s">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fa-solid fa-arrow-right"></i> View Projects
+          </a>
+          <a href="<%= site.profile.cvUrl %>" class="btn btn-outline" download>
+            <i class="fa-solid fa-file-arrow-down"></i> Download CV
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            Contact Me
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal-right">
+        <div class="hero-avatar-wrapper">
+          <div class="hero-avatar-img">
+            <img src="<%= site.profile.avatar %>" alt="<%= site.profile.name %>" width="320" height="320" />
+          </div>
+          <div class="hero-tech-badges">
+            <span class="hero-tech-badge"><i class="fab fa-laravel"></i> Laravel</span>
+            <span class="hero-tech-badge"><i class="fas fa-database"></i> MySQL</span>
+            <span class="hero-tech-badge"><i class="fab fa-node-js"></i> Node.js</span>
+            <span class="hero-tech-badge"><i class="fas fa-shield-halved"></i> JWT</span>
+            <span class="hero-tech-badge"><i class="fas fa-cloud"></i> API</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

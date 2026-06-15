@@ -1,0 +1,29 @@
+<section id="about" class="section about-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">About Me</span>
+      <h2 class="section-title">The Story Behind<br />the Code</h2>
+      <p class="section-subtitle">From a curious student to a backend developer — a journey of building, learning, and growing.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-story reveal-left">
+        <% site.about.story.forEach(function(p) { %>
+          <p><%= p %></p>
+        <% }); %>
+      </div>
+
+      <div class="about-highlights reveal-right">
+        <div class="about-highlights-grid">
+          <% site.about.highlights.forEach(function(h) { %>
+            <div class="about-highlight-card">
+              <div class="about-highlight-icon"><i class="fas <%= h.icon %>"></i></div>
+              <div class="about-highlight-label"><%= h.label %></div>
+              <div class="about-highlight-value"><%= h.value %></div>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

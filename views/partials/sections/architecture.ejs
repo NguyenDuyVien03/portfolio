@@ -1,0 +1,83 @@
+<section id="architecture" class="section architecture-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Architecture</span>
+      <h2 class="section-title">System Design<br />Showcase</h2>
+      <p class="section-subtitle"><%= site.architectureSystem.description %></p>
+    </div>
+
+    <div class="architecture-container reveal">
+      <div class="architecture-flow" id="archFlow">
+        <div class="arch-node" style="border-color: rgba(139,92,246,0.2)">
+          <div class="arch-node-icon" style="background: rgba(139,92,246,0.12); color: #c084fc;">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="arch-node-label">Client<br/>(Web/Mobile)</div>
+        </div>
+        <div class="arch-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+        <div class="arch-node" style="border-color: rgba(139,92,246,0.2)">
+          <div class="arch-node-icon" style="background: rgba(139,92,246,0.12); color: #a855f7;">
+            <i class="fas fa-server"></i>
+          </div>
+          <div class="arch-node-label">Laravel API</div>
+        </div>
+        <div class="arch-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+        <div class="arch-node" style="border-color: rgba(139,92,246,0.2)">
+          <div class="arch-node-icon" style="background: rgba(139,92,246,0.12); color: #8b5cf6;">
+            <i class="fas fa-shield-halved"></i>
+          </div>
+          <div class="arch-node-label">JWT Auth</div>
+        </div>
+        <div class="arch-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+        <div class="arch-node" style="border-color: rgba(139,92,246,0.2)">
+          <div class="arch-node-icon" style="background: rgba(139,92,246,0.12); color: #a78bfa;">
+            <i class="fas fa-database"></i>
+          </div>
+          <div class="arch-node-label">MySQL DB</div>
+        </div>
+
+        <div style="width:100%;height:20px"></div>
+
+        <div class="arch-node" style="border-color: rgba(139,92,246,0.2)">
+          <div class="arch-node-icon" style="background: rgba(139,92,246,0.12); color: #c084fc;">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <div class="arch-node-label">Cloudinary</div>
+        </div>
+        <div class="arch-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+        <div class="arch-node" style="border-color: rgba(139,92,246,0.2)">
+          <div class="arch-node-icon" style="background: rgba(139,92,246,0.12); color: #a855f7;">
+            <i class="fas fa-truck"></i>
+          </div>
+          <div class="arch-node-label">GHN Shipping</div>
+        </div>
+        <div class="arch-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+        <div class="arch-node" style="border-color: rgba(139,92,246,0.2)">
+          <div class="arch-node-icon" style="background: rgba(139,92,246,0.12); color: #8b5cf6;">
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <div class="arch-node-label">VNPay Payment</div>
+        </div>
+        <div class="arch-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+        <div class="arch-node" style="border-color: rgba(139,92,246,0.2)">
+          <div class="arch-node-icon" style="background: rgba(139,92,246,0.12); color: #a78bfa;">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div class="arch-node-label">AI Service</div>
+        </div>
+      </div>
+
+      <p class="arch-description reveal">
+        The system follows a modular architecture with Laravel at its core, handling RESTful API requests, authentication via JWT, 
+        data persistence in MySQL, media storage through Cloudinary, and third-party integrations for shipping (GHN) and payments (VNPay). 
+        An AI recommendation engine enhances user experience with personalized product suggestions.
+      </p>
+    </div>
+  </div>
+</section>

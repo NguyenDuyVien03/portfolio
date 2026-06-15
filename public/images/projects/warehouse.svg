@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="none">
+  <rect width="400" height="240" rx="16" fill="#f0fdf4"/>
+  <path d="M80 160 L200 80 L320 160 V180 H80 Z" fill="#16a34a" opacity="0.25"/>
+  <rect x="120" y="100" width="60" height="80" fill="#16a34a"/>
+  <rect x="220" y="120" width="60" height="60" fill="#16a34a" opacity="0.6"/>
+  <text x="200" y="210" text-anchor="middle" fill="#16a34a" font-family="system-ui" font-size="18" font-weight="600">Warehouse</text>
+</svg>

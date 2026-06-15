@@ -1,0 +1,43 @@
+<section id="terminal" class="section terminal-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Interactive</span>
+      <h2 class="section-title">Terminal</h2>
+      <p class="section-subtitle">Type commands to explore my profile interactively. Try <code>help</code>, <code>about</code>, <code>skills</code>, or <code>projects</code>.</p>
+    </div>
+
+    <div class="terminal reveal">
+      <div class="terminal-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">portfolio@terminal — bash</span>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div class="terminal-output">
+          <div class="terminal-output-line cyan">╔════════════════════════════════════════╗</div>
+          <div class="terminal-output-line cyan">║   Welcome to Nguyen Duy Vien's Terminal ║</div>
+          <div class="terminal-output-line cyan">╚════════════════════════════════════════╝</div>
+          <div class="terminal-output-line dim"> </div>
+          <div class="terminal-output-line dim">Type <span class="green">help</span> to see available commands.</div>
+          <div class="terminal-output-line dim"> </div>
+        </div>
+        <div class="terminal-output" id="terminalOutput"></div>
+        <div class="terminal-input-line">
+          <span class="terminal-prompt">visitor@portfolio:~$</span>
+          <input type="text" class="terminal-input" id="terminalInput" autofocus spellcheck="false" autocomplete="off" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+window.__terminalResponses = {
+  about: <%- JSON.stringify(site.terminalResponses.about) %>,
+  skills: <%- JSON.stringify(site.terminalResponses.skills) %>,
+  projects: <%- JSON.stringify(site.terminalResponses.projects) %>,
+  contact: <%- JSON.stringify(site.terminalResponses.contact) %>,
+  education: <%- JSON.stringify(site.terminalResponses.education) %>,
+};
+</script>

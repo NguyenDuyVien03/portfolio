@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="none">
+  <rect width="400" height="240" rx="16" fill="#faf5ff"/>
+  <rect x="60" y="40" width="280" height="160" rx="8" fill="#7c3aed" opacity="0.15" stroke="#7c3aed" stroke-width="2"/>
+  <text x="100" y="90" fill="#7c3aed" font-family="monospace" font-size="14">&lt;/&gt;</text>
+  <rect x="100" y="110" width="180" height="8" rx="4" fill="#7c3aed" opacity="0.5"/>
+  <rect x="100" y="130" width="140" height="8" rx="4" fill="#a78bfa"/>
+  <text x="200" y="210" text-anchor="middle" fill="#7c3aed" font-family="system-ui" font-size="18" font-weight="600">Portfolio</text>
+</svg>
