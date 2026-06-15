@@ -1,14 +1,15 @@
 <section id="about" class="section about-section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">About Me</span>
-      <h2 class="section-title">The Story Behind<br />the Code</h2>
-      <p class="section-subtitle">From a curious student to a backend developer — a journey of building, learning, and growing.</p>
+      <span class="section-label"><%= t('about.label') %></span>
+      <h2 class="section-title"><%- t('about.title') %></h2>
+      <p class="section-subtitle"><%= t('about.subtitle') %></p>
     </div>
 
     <div class="about-grid">
       <div class="about-story reveal-left">
-        <% site.about.story.forEach(function(p) { %>
+        <% var storyData = lang === 'en' && site.about.storyEn ? site.about.storyEn : site.about.story; %>
+        <% storyData.forEach(function(p) { %>
           <p><%= p %></p>
         <% }); %>
       </div>
@@ -18,8 +19,8 @@
           <% site.about.highlights.forEach(function(h) { %>
             <div class="about-highlight-card">
               <div class="about-highlight-icon"><i class="fas <%= h.icon %>"></i></div>
-              <div class="about-highlight-label"><%= h.label %></div>
-              <div class="about-highlight-value"><%= h.value %></div>
+              <div class="about-highlight-label"><%= lang === 'en' && h.labelEn ? h.labelEn : h.label %></div>
+              <div class="about-highlight-value"><%= lang === 'en' && h.valueEn ? h.valueEn : h.value %></div>
             </div>
           <% }); %>
         </div>

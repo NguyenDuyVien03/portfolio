@@ -4,11 +4,12 @@ const contactMessages = [];
 
 async function postContact(req, res) {
   const { name, email, subject, message } = req.body;
+  const isEn = req.body.lang === 'en';
 
   if (!name?.trim() || !email?.trim() || !message?.trim()) {
     return res.status(400).json({
       success: false,
-      message: 'Please fill in Name, Email and Message.',
+      message: isEn ? 'Please fill in Name, Email and Message.' : 'Vui lòng điền đầy đủ Họ tên, Email và Nội dung.',
     });
   }
 
@@ -16,7 +17,7 @@ async function postContact(req, res) {
   if (!emailRegex.test(email)) {
     return res.status(400).json({
       success: false,
-      message: 'Invalid email address.',
+      message: isEn ? 'Invalid email address.' : 'Email không hợp lệ.',
     });
   }
 
@@ -64,7 +65,7 @@ async function postContact(req, res) {
       await axios.post(discordWebhook, {
         embeds: [{
           title: '📬 New Contact Message',
-          color: 0x3b82f6,
+          color: 0x8b5cf6,
           fields: [
             { name: 'Name', value: entry.name, inline: true },
             { name: 'Email', value: entry.email, inline: true },
@@ -82,7 +83,7 @@ async function postContact(req, res) {
 
   res.json({
     success: true,
-    message: 'Thank you! Your message has been sent successfully.',
+    message: isEn ? 'Thank you! Your message has been sent successfully.' : 'Cảm ơn bạn! Tin nhắn đã được gửi thành công.',
   });
 }
 

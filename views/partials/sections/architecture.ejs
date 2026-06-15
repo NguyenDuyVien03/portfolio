@@ -1,9 +1,9 @@
 <section id="architecture" class="section architecture-section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">Architecture</span>
-      <h2 class="section-title">System Design<br />Showcase</h2>
-      <p class="section-subtitle"><%= site.architectureSystem.description %></p>
+      <span class="section-label"><%= t('architecture.label') %></span>
+      <h2 class="section-title"><%- t('architecture.title') %></h2>
+      <p class="section-subtitle"><%= lang === 'en' && site.architectureSystem.descriptionEn ? site.architectureSystem.descriptionEn : site.architectureSystem.description %></p>
     </div>
 
     <div class="architecture-container reveal">
@@ -73,11 +73,7 @@
         </div>
       </div>
 
-      <p class="arch-description reveal">
-        The system follows a modular architecture with Laravel at its core, handling RESTful API requests, authentication via JWT, 
-        data persistence in MySQL, media storage through Cloudinary, and third-party integrations for shipping (GHN) and payments (VNPay). 
-        An AI recommendation engine enhances user experience with personalized product suggestions.
-      </p>
+      <p class="arch-description reveal"><%= t('architecture.desc') %></p>
     </div>
   </div>
 </section>

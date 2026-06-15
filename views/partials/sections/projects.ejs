@@ -1,9 +1,9 @@
 <section id="projects" class="section projects-section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">Featured Projects</span>
-      <h2 class="section-title">What I've<br />Built</h2>
-      <p class="section-subtitle">Real projects that demonstrate my ability to design, build, and ship backend systems.</p>
+      <span class="section-label"><%= t('projects.label') %></span>
+      <h2 class="section-title"><%- t('projects.title') %></h2>
+      <p class="section-subtitle"><%= t('projects.subtitle') %></p>
     </div>
 
     <div class="projects-grid">
@@ -36,14 +36,14 @@
             </div>
             <div class="project-actions">
               <a href="/projects/<%= project.slug %>" class="btn btn-primary">
-                <i class="fa-solid fa-book-open"></i> Case Study
+                <i class="fa-solid fa-book-open"></i> <%= t('projects.caseStudy') %>
               </a>
               <a href="<%= project.github %>" class="btn btn-outline" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i> GitHub
+                <i class="fab fa-github"></i> <%= t('projects.github') %>
               </a>
               <% if (project.demo) { %>
                 <a href="<%= project.demo %>" class="btn btn-outline" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> <%= t('projects.demo') %>
                 </a>
               <% } %>
             </div>

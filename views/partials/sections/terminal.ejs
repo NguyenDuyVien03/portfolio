@@ -1,9 +1,9 @@
 <section id="terminal" class="section terminal-section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">Interactive</span>
-      <h2 class="section-title">Terminal</h2>
-      <p class="section-subtitle">Type commands to explore my profile interactively. Try <code>help</code>, <code>about</code>, <code>skills</code>, or <code>projects</code>.</p>
+      <span class="section-label"><%= t('terminal.label') %></span>
+      <h2 class="section-title"><%- t('terminal.title') %></h2>
+      <p class="section-subtitle"><%- t('terminal.subtitle') %></p>
     </div>
 
     <div class="terminal reveal">
@@ -15,11 +15,11 @@
       </div>
       <div class="terminal-body" id="terminalBody">
         <div class="terminal-output">
-          <div class="terminal-output-line cyan">╔════════════════════════════════════════╗</div>
-          <div class="terminal-output-line cyan">║   Welcome to Nguyen Duy Vien's Terminal ║</div>
-          <div class="terminal-output-line cyan">╚════════════════════════════════════════╝</div>
+          <div class="terminal-output-line cyan"><%= t('terminal.welcome1') %></div>
+          <div class="terminal-output-line cyan"><%= t('terminal.welcome2') %></div>
+          <div class="terminal-output-line cyan"><%= t('terminal.welcome3') %></div>
           <div class="terminal-output-line dim"> </div>
-          <div class="terminal-output-line dim">Type <span class="green">help</span> to see available commands.</div>
+          <div class="terminal-output-line dim"><%- t('terminal.hint') %></div>
           <div class="terminal-output-line dim"> </div>
         </div>
         <div class="terminal-output" id="terminalOutput"></div>
@@ -34,10 +34,14 @@
 
 <script>
 window.__terminalResponses = {
-  about: <%- JSON.stringify(site.terminalResponses.about) %>,
+  lang: '<%= lang %>',
+  about: <%- JSON.stringify(lang === 'en' && site.terminalResponses.aboutEn ? site.terminalResponses.aboutEn : site.terminalResponses.about) %>,
   skills: <%- JSON.stringify(site.terminalResponses.skills) %>,
-  projects: <%- JSON.stringify(site.terminalResponses.projects) %>,
-  contact: <%- JSON.stringify(site.terminalResponses.contact) %>,
-  education: <%- JSON.stringify(site.terminalResponses.education) %>,
+  projects: <%- JSON.stringify(lang === 'en' && site.terminalResponses.projectsEn ? site.terminalResponses.projectsEn : site.terminalResponses.projects) %>,
+  contact: <%- JSON.stringify(lang === 'en' && site.terminalResponses.contactEn ? site.terminalResponses.contactEn : site.terminalResponses.contact) %>,
+  education: <%- JSON.stringify(lang === 'en' && site.terminalResponses.educationEn ? site.terminalResponses.educationEn : site.terminalResponses.education) %>,
 };
+window.__terminalCommands = <%- JSON.stringify(site.terminalCommands.map(function(c) {
+  return { cmd: c.cmd, description: lang === 'en' && c.descriptionEn ? c.descriptionEn : c.description };
+})) %>;
 </script>

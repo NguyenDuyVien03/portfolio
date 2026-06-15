@@ -1,9 +1,9 @@
 <section id="github" class="section github-section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">Open Source</span>
-      <h2 class="section-title">GitHub<br />Activity</h2>
-      <p class="section-subtitle">Real-time data from my GitHub profile — repositories, languages, and contributions.</p>
+      <span class="section-label"><%= t('github.label') %></span>
+      <h2 class="section-title"><%- t('github.title') %></h2>
+      <p class="section-subtitle"><%= t('github.subtitle') %></p>
     </div>
 
     <div id="githubSection" data-username="<%= github.username || '' %>">
@@ -16,24 +16,24 @@
           <div class="github-stat-card">
             <div class="github-stat-icon"><i class="fab fa-github"></i></div>
             <div class="github-stat-number" id="repoCount"><%= github.repoCount %></div>
-            <div class="github-stat-label">Public Repositories</div>
+            <div class="github-stat-label"><%= t('github.repos') %></div>
           </div>
           <div class="github-stat-card">
             <div class="github-stat-icon"><i class="fa-solid fa-code"></i></div>
             <div class="github-stat-number" id="topLanguage"><%= github.topLanguage %></div>
-            <div class="github-stat-label">Most Used Language</div>
+            <div class="github-stat-label"><%= t('github.language') %></div>
           </div>
           <div class="github-stat-card">
             <div class="github-stat-icon"><i class="fa-solid fa-star"></i></div>
             <div class="github-stat-number" id="commitCount">-</div>
-            <div class="github-stat-label">Contributions</div>
+            <div class="github-stat-label"><%= t('github.contributions') %></div>
           </div>
         </div>
 
-        <h3 class="section-subtitle" style="text-align:center;margin-bottom:24px">Latest Repositories</h3>
+        <h3 class="section-subtitle" style="text-align:center;margin-bottom:24px"><%= t('github.latest') %></h3>
         <div class="github-repos-grid" id="githubRepos">
           <% if (github.repos.length === 0) { %>
-            <p class="text-muted" style="grid-column:1/-1;text-align:center">No repositories or still loading...</p>
+            <p class="text-muted" style="grid-column:1/-1;text-align:center"><%= t('github.loading') %></p>
           <% } %>
           <% github.repos.forEach(function(repo) { %>
             <div class="github-repo-card">
@@ -42,7 +42,7 @@
                   <i class="fab fa-github me-1"></i><%= repo.name %>
                 </a>
               </div>
-              <div class="github-repo-desc"><%= repo.description || 'No description' %></div>
+              <div class="github-repo-desc"><%= repo.description || t('github.noDesc') %></div>
               <div class="github-repo-meta">
                 <span class="github-repo-lang">
                   <% if (repo.language) { %>

@@ -8,7 +8,7 @@
       <div class="hero-text">
         <div class="hero-badge reveal">
           <span class="hero-badge-dot"></span>
-          Available for opportunities
+          <%= t('hero.badge') %>
         </div>
 
         <h1 class="hero-name reveal" style="transition-delay:0.1s">
@@ -20,18 +20,18 @@
         </div>
 
         <p class="hero-desc reveal" style="transition-delay:0.3s">
-          I build web systems, REST APIs, and backend architectures — turning complex requirements into scalable, maintainable solutions. Passionate about clean code, database design, and system optimization.
+          <%= t('hero.desc') %>
         </p>
 
         <div class="hero-actions reveal" style="transition-delay:0.4s">
           <a href="#projects" class="btn btn-primary">
-            <i class="fa-solid fa-arrow-right"></i> View Projects
+            <i class="fa-solid fa-arrow-right"></i> <%= t('hero.viewProjects') %>
           </a>
           <a href="<%= site.profile.cvUrl %>" class="btn btn-outline" download>
-            <i class="fa-solid fa-file-arrow-down"></i> Download CV
+            <i class="fa-solid fa-file-arrow-down"></i> <%= t('hero.downloadCV') %>
           </a>
           <a href="#contact" class="btn btn-ghost">
-            Contact Me
+            <%= t('hero.contactMe') %>
           </a>
         </div>
       </div>

@@ -1,19 +1,21 @@
 <section id="ai" class="section ai-section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">AI Integration</span>
-      <h2 class="section-title">AI-Powered<br />Development</h2>
-      <p class="section-subtitle">How I leverage AI tools to accelerate development, improve code quality, and solve complex problems.</p>
+      <span class="section-label"><%= t('ai.label') %></span>
+      <h2 class="section-title"><%- t('ai.title') %></h2>
+      <p class="section-subtitle"><%= t('ai.subtitle') %></p>
     </div>
 
     <div class="ai-grid">
       <% site.aiTools.forEach(function(tool) { %>
+        <% var toolDesc = lang === 'en' && tool.descriptionEn ? tool.descriptionEn : tool.description; %>
+        <% var toolUses = lang === 'en' && tool.useCasesEn ? tool.useCasesEn : tool.useCases; %>
         <div class="ai-card reveal" style="transition-delay:0.1s">
           <div class="ai-card-icon"><i class="fa-solid <%= tool.icon %>"></i></div>
           <div class="ai-card-name"><%= tool.name %></div>
-          <div class="ai-card-desc"><%= tool.description %></div>
+          <div class="ai-card-desc"><%= toolDesc %></div>
           <div class="ai-card-tags">
-            <% tool.useCases.forEach(function(use) { %>
+            <% toolUses.forEach(function(use) { %>
               <span class="ai-card-tag"><%= use %></span>
             <% }); %>
           </div>

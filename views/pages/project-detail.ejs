@@ -2,9 +2,9 @@
   <div class="case-study-hero-bg"></div>
   <div class="container">
     <div class="case-study-breadcrumb">
-      <a href="/">Home</a>
+      <a href="/"><%= t('caseStudy.home') %></a>
       <span>/</span>
-      <a href="/#projects">Projects</a>
+      <a href="/#projects"><%= t('caseStudy.projects') %></a>
       <span>/</span>
       <span><%= project.title %></span>
     </div>
@@ -36,14 +36,14 @@
 
         <% if (project.problem) { %>
           <div class="case-study-section reveal">
-            <h2 class="case-study-section-title"><i class="fa-solid fa-circle-exclamation"></i> Problem</h2>
+            <h2 class="case-study-section-title"><i class="fa-solid fa-circle-exclamation"></i> <%= t('caseStudy.problem') %></h2>
             <div class="case-study-section-content"><%= project.problem %></div>
           </div>
         <% } %>
 
         <% if (project.requirements && project.requirements.length > 0) { %>
           <div class="case-study-section reveal">
-            <h2 class="case-study-section-title"><i class="fa-solid fa-list-check"></i> Requirements</h2>
+            <h2 class="case-study-section-title"><i class="fa-solid fa-list-check"></i> <%= t('caseStudy.requirements') %></h2>
             <ul class="case-study-list">
               <% project.requirements.forEach(function(r) { %>
                 <li><%= r %></li>
@@ -54,7 +54,7 @@
 
         <% if (project.architecture && project.architecture.summary) { %>
           <div class="case-study-section reveal">
-            <h2 class="case-study-section-title"><i class="fa-solid fa-sitemap"></i> System Architecture</h2>
+            <h2 class="case-study-section-title"><i class="fa-solid fa-sitemap"></i> <%= t('caseStudy.architecture') %></h2>
             <div class="case-study-section-content">
               <p><%= project.architecture.summary %></p>
             </div>
@@ -78,7 +78,7 @@
 
         <% if (project.database && project.database.length > 0) { %>
           <div class="case-study-section reveal">
-            <h2 class="case-study-section-title"><i class="fa-solid fa-database"></i> Database Design</h2>
+            <h2 class="case-study-section-title"><i class="fa-solid fa-database"></i> <%= t('caseStudy.database') %></h2>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
               <% project.database.forEach(function(t) { %>
                 <div style="padding:16px;border-radius:12px;border:1px solid var(--border-color);background:var(--bg-card)">
@@ -92,14 +92,14 @@
 
         <% if (project.apiEndpoints && project.apiEndpoints.length > 0) { %>
           <div class="case-study-section reveal">
-            <h2 class="case-study-section-title"><i class="fa-solid fa-code"></i> API Endpoints</h2>
+            <h2 class="case-study-section-title"><i class="fa-solid fa-code"></i> <%= t('caseStudy.api') %></h2>
             <div style="overflow-x:auto">
               <table class="case-study-api-table">
                 <thead>
                   <tr>
-                    <th>Method</th>
-                    <th>Endpoint</th>
-                    <th>Description</th>
+                    <th><%= t('caseStudy.method') %></th>
+                    <th><%= t('caseStudy.endpoint') %></th>
+                    <th><%= t('caseStudy.description') %></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -118,7 +118,7 @@
 
         <% if (project.challenges && project.challenges.length > 0) { %>
           <div class="case-study-section reveal">
-            <h2 class="case-study-section-title"><i class="fa-solid fa-triangle-exclamation"></i> Challenges & Solutions</h2>
+            <h2 class="case-study-section-title"><i class="fa-solid fa-triangle-exclamation"></i> <%= t('caseStudy.challenges') %></h2>
             <ul class="case-study-list">
               <% project.challenges.forEach(function(c) { %>
                 <li><%= c %></li>
@@ -129,7 +129,7 @@
 
         <% if (project.results && project.results.length > 0) { %>
           <div class="case-study-section reveal">
-            <h2 class="case-study-section-title"><i class="fa-solid fa-trophy"></i> Results</h2>
+            <h2 class="case-study-section-title"><i class="fa-solid fa-trophy"></i> <%= t('caseStudy.results') %></h2>
             <ul class="case-study-list">
               <% project.results.forEach(function(r) { %>
                 <li><i class="fa-solid fa-check" style="color:var(--accent);margin-right:8px"></i><%= r %></li>
@@ -145,25 +145,25 @@
           <img src="<%= summary.image %>" alt="<%= project.title %>" class="case-study-image" />
 
           <div style="margin-bottom:24px;padding:20px;border-radius:16px;border:1px solid var(--border-color);background:var(--bg-card)">
-            <h3 style="font-size:0.9rem;font-weight:600;margin-bottom:12px">Project Info</h3>
+            <h3 style="font-size:0.9rem;font-weight:600;margin-bottom:12px"><%= t('caseStudy.projectInfo') %></h3>
             <div style="display:flex;flex-direction:column;gap:8px;font-size:0.85rem">
-              <div><span style="color:var(--text-tertiary)">Type:</span> <%= summary.type %></div>
-              <div><span style="color:var(--text-tertiary)">Role:</span> <%= summary.role %></div>
-              <div><span style="color:var(--text-tertiary)">Period:</span> <%= summary.period %></div>
+              <div><span style="color:var(--text-tertiary)"><%= t('caseStudy.type') %></span> <%= summary.type %></div>
+              <div><span style="color:var(--text-tertiary)"><%= t('caseStudy.role') %></span> <%= summary.role %></div>
+              <div><span style="color:var(--text-tertiary)"><%= t('caseStudy.period') %></span> <%= summary.period %></div>
             </div>
           </div>
 
           <div class="case-study-actions">
             <a href="<%= summary.github %>" class="btn btn-primary" target="_blank" rel="noopener" style="justify-content:center">
-              <i class="fab fa-github"></i> View on GitHub
+              <i class="fab fa-github"></i> <%= t('caseStudy.viewGithub') %>
             </a>
             <% if (summary.demo) { %>
               <a href="<%= summary.demo %>" class="btn btn-outline" target="_blank" rel="noopener" style="justify-content:center">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> <%= t('caseStudy.liveDemo') %>
               </a>
             <% } %>
             <a href="/#projects" class="btn btn-ghost" style="justify-content:center">
-              <i class="fa-solid fa-arrow-left"></i> Back to Projects
+              <i class="fa-solid fa-arrow-left"></i> <%= t('caseStudy.back') %>
             </a>
           </div>
         </div>

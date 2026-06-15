@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="dark">
+<html lang="<%= lang %>" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="<%= site.profile.name %> - <%= site.profile.title %>. Portfolio cá nhân hiện đại, chuyên về Laravel, REST API, MySQL và Backend Architecture." />
+  <meta name="description" content="<%= site.profile.name %> - <%= site.profile.title %>. <%= t('hero.desc') %>" />
   <meta name="keywords" content="backend developer, laravel, php, nodejs, REST API, portfolio, nguyenduyvien" />
   <meta name="author" content="<%= site.profile.name %>" />
   <meta property="og:title" content="<%= site.profile.name %> - Backend Developer Portfolio" />
-  <meta property="og:description" content="Portfolio cá nhân - Backend Developer chuyên về Laravel, RESTful API và Backend Architecture." />
+  <meta property="og:description" content="<%= t('hero.desc') %>" />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#050505" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -28,13 +28,16 @@
         <span class="brand-bracket">&lt;</span><span class="brand-name"><%= site.profile.name.split(' ').pop() %></span><span class="brand-bracket">/&gt;</span>
       </a>
       <div class="nav-links">
-        <a href="/#hero" class="nav-link active">Home</a>
-        <a href="/#about" class="nav-link">About</a>
-        <a href="/#skills" class="nav-link">Skills</a>
-        <a href="/#projects" class="nav-link">Projects</a>
-        <a href="/#experience" class="nav-link">Journey</a>
-        <a href="/#contact" class="nav-link">Contact</a>
-        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <a href="/#hero" class="nav-link active"><%= t('nav.home') %></a>
+        <a href="/#about" class="nav-link"><%= t('nav.about') %></a>
+        <a href="/#skills" class="nav-link"><%= t('nav.skills') %></a>
+        <a href="/#projects" class="nav-link"><%= t('nav.projects') %></a>
+        <a href="/#experience" class="nav-link"><%= t('nav.journey') %></a>
+        <a href="/#contact" class="nav-link"><%= t('nav.contact') %></a>
+        <button type="button" class="lang-toggle" id="langToggle" aria-label="Switch language">
+          <span class="lang-label"><%= lang === 'vi' ? 'EN' : 'VI' %></span>
+        </button>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="<%= t('theme.toggle') %>">
           <i class="fas fa-moon" id="themeIcon"></i>
         </button>
       </div>
@@ -45,12 +48,12 @@
   </nav>
 
   <nav class="mobile-nav" id="mobileNav">
-    <a href="/#hero" class="mobile-nav-link">Home</a>
-    <a href="/#about" class="mobile-nav-link">About</a>
-    <a href="/#skills" class="mobile-nav-link">Skills</a>
-    <a href="/#projects" class="mobile-nav-link">Projects</a>
-    <a href="/#experience" class="mobile-nav-link">Journey</a>
-    <a href="/#contact" class="mobile-nav-link">Contact</a>
+    <a href="/#hero" class="mobile-nav-link"><%= t('nav.home') %></a>
+    <a href="/#about" class="mobile-nav-link"><%= t('nav.about') %></a>
+    <a href="/#skills" class="mobile-nav-link"><%= t('nav.skills') %></a>
+    <a href="/#projects" class="mobile-nav-link"><%= t('nav.projects') %></a>
+    <a href="/#experience" class="mobile-nav-link"><%= t('nav.journey') %></a>
+    <a href="/#contact" class="mobile-nav-link"><%= t('nav.contact') %></a>
   </nav>
 
   <main>
@@ -60,7 +63,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <p>&copy; <%= new Date().getFullYear() %> <%= site.profile.name %>. Built with Node.js, Express & EJS</p>
+        <p>&copy; <%= new Date().getFullYear() %> <%= site.profile.name %>. <%= t('footer.built') %></p>
         <div class="footer-links">
           <a href="<%= site.profile.github %>" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
           <a href="<%= site.profile.linkedin %>" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -70,7 +73,8 @@
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>window.__lang = '<%= lang %>';</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios@1.7.9/dist/axios.min.js"></script>
   <script src="/js/theme.js"></script>

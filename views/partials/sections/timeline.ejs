@@ -1,9 +1,9 @@
 <section id="experience" class="section experience-section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">Journey</span>
-      <h2 class="section-title">Development<br />Timeline</h2>
-      <p class="section-subtitle">My path from a tech student to a backend developer — a continuous journey of growth.</p>
+      <span class="section-label"><%= t('timeline.label') %></span>
+      <h2 class="section-title"><%- t('timeline.title') %></h2>
+      <p class="section-subtitle"><%= t('timeline.subtitle') %></p>
     </div>
 
     <div class="timeline-container">
@@ -13,13 +13,15 @@
 
       <div class="timeline-items">
         <% site.timeline.forEach(function(item, i) { %>
+          <% var tlEvents = lang === 'en' && item.eventsEn ? item.eventsEn : item.events; %>
+          <% var tlLabel = lang === 'en' && item.labelEn ? item.labelEn : item.label; %>
           <div class="timeline-item <%= i % 2 === 0 ? 'left' : 'right' %> reveal">
             <div class="timeline-item-content">
               <div class="timeline-item-icon"><i class="fas <%= item.icon %>"></i></div>
-              <div class="timeline-item-title"><%= item.label %></div>
+              <div class="timeline-item-title"><%= tlLabel %></div>
               <div class="timeline-item-year"><%= item.year %></div>
               <ul class="timeline-item-desc">
-                <% item.events.forEach(function(ev) { %>
+                <% tlEvents.forEach(function(ev) { %>
                   <li><%= ev %></li>
                 <% }); %>
               </ul>

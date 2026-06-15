@@ -6,7 +6,7 @@ function getProjectDetail(req, res) {
   const summary = siteData.projects.find((p) => p.slug === slug);
 
   if (!project || !summary) {
-    return res.status(404).render('pages/404', { title: 'Không tìm thấy dự án' });
+    return res.status(404).render('pages/404', { title: res.locals.t('error.notFound') });
   }
 
   res.render('pages/project-detail', {

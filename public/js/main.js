@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCursorGlow();
   initTypewriter();
   initCounterAnimation();
+  initLangSwitcher();
   initTerminal();
   initContactForm();
   initActiveNav();
@@ -184,13 +185,24 @@ function animateCounter(el, target) {
   update();
 }
 
+/* ── Language Switcher ── */
+function initLangSwitcher() {
+  const btn = document.getElementById('langToggle');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const next = window.__lang === 'vi' ? 'en' : 'vi';
+    document.cookie = `lang=${next};path=/;max-age=31536000`;
+    window.location.reload();
+  });
+}
+
 /* ── Terminal ── */
 function initTerminal() {
   const input = document.getElementById('terminalInput');
   const output = document.getElementById('terminalOutput');
   if (!input || !output) return;
 
-  const terminalResponses = window.__terminalData || {};
+  const isEn = window.__lang === 'en';
 
   function printCommand(cmd) {
     const line = document.createElement('div');
@@ -207,10 +219,10 @@ function initTerminal() {
 
       if (line.startsWith('═══')) {
         div.className += ' cyan';
-      } else if (line.startsWith('Type') || line.startsWith('Gõ')) {
-        div.className += ' dim';
       } else if (line.match(/^[📧📞💻🔗]/)) {
         div.className += ' green';
+      } else {
+        div.className += ' dim';
       }
 
       div.textContent = line;
@@ -223,20 +235,15 @@ function initTerminal() {
     if (body) body.scrollTop = body.scrollHeight;
   }
 
+  const cmds = window.__terminalCommands || [];
+  const cmdHelp = cmds.map((c) => `  ${c.cmd.padEnd(11)} - ${c.description}`).join('\n');
+  const notFound = isEn ? `Command not found: ` : `Không tìm thấy lệnh: `;
+  const helpHint = isEn ? 'Type "help" to see available commands.' : 'Gõ "help" để xem các lệnh.';
+
   const commands = {
     help: () => {
-      const lines = [
-        'Available commands:',
-        '',
-        '  about     - About me',
-        '  skills    - Technical skills',
-        '  projects  - Featured projects',
-        '  contact   - Contact information',
-        '  education - Education background',
-        '  help      - Show this help',
-        '  clear     - Clear terminal',
-      ];
-      printResponse(lines);
+      const header = isEn ? 'Available commands:' : 'Danh sách lệnh:';
+      printResponse([header, '', ...cmds.map((c) => `  ${c.cmd.padEnd(11)} - ${c.description}`), '', `  clear     - ${isEn ? 'Clear terminal' : 'Xóa màn hình'}`]);
     },
     about: () => printResponse(window.__terminalResponses?.about || ['No data']),
     skills: () => printResponse(window.__terminalResponses?.skills || ['No data']),
@@ -257,7 +264,7 @@ function initTerminal() {
       if (commands[cmd]) {
         commands[cmd]();
       } else if (cmd) {
-        printResponse([`Command not found: ${cmd}`, 'Type "help" to see available commands.']);
+        printResponse([`${notFound}${cmd}`, helpHint]);
       }
 
       scrollToBottom();
@@ -280,26 +287,30 @@ function initContactForm() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    const isEn = window.__lang === 'en';
+
     const payload = {
       name: form.name.value,
       email: form.email.value,
       subject: form.subject.value || 'Contact from Portfolio',
       message: form.message.value,
+      lang: window.__lang,
     };
 
     submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+    submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> ${isEn ? 'Sending...' : 'Đang gửi...'}`;
 
     try {
       const { data } = await axios.post('/api/contact', payload);
       showFormAlert(alertEl, data.message, 'success');
       form.reset();
     } catch (err) {
-      const msg = err.response?.data?.message || 'Failed to send. Please try again.';
+      const msg = err.response?.data?.message || (isEn ? 'Failed to send. Please try again.' : 'Gửi thất bại. Vui lòng thử lại.');
       showFormAlert(alertEl, msg, 'error');
     } finally {
       submitBtn.disabled = false;
-      submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+      const label = isEn ? 'Send Message' : 'Gửi tin nhắn';
+      submitBtn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> ${label}`;
     }
   });
 }

@@ -5,7 +5,7 @@ async function getHomePage(req, res) {
   const github = await fetchGitHubStats(githubUsername);
 
   res.render('pages/index', {
-    title: 'Trang chủ',
+    title: res.locals.lang === 'en' ? 'Home' : 'Trang chủ',
     github,
   });
 }
