@@ -1,37 +1,55 @@
 <section id="experience" class="section experience-section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label"><%= t('timeline.label') %></span>
+      <span class="section-label">
+        <%= t('timeline.label') %>
+      </span>
       <h2 class="section-title"><%- t('timeline.title') %></h2>
-      <p class="section-subtitle"><%= t('timeline.subtitle') %></p>
+      <p class="section-subtitle">
+        <%= t('timeline.subtitle') %>
+      </p>
     </div>
 
     <div class="timeline-container">
-      <svg class="timeline-svg" viewBox="0 0 900 100%" preserveAspectRatio="xMidYMid meet">
-        <path id="timelinePath" d="M450,0 C600,100 300,200 450,300 C600,400 300,500 450,600 C600,700 300,800 450,900" />
+      <svg class="timeline-svg" viewBox="0 0 900 1800" preserveAspectRatio="xMidYMid meet">
+        <path id="timelinePath" d="M450,0
+C600,100 300,200 450,300
+C600,400 300,500 450,600
+C600,700 300,800 450,900
+C600,1000 300,1100 450,1200
+C600,1300 300,1400 450,1500
+C600,1600 300,1700 450,1800" />
       </svg>
 
       <div class="timeline-items">
         <% site.timeline.forEach(function(item, i) { %>
-          <% var tlEvents = lang === 'en' && item.eventsEn ? item.eventsEn : item.events; %>
-          <% var tlLabel = lang === 'en' && item.labelEn ? item.labelEn : item.label; %>
-          <div class="timeline-item <%= i % 2 === 0 ? 'left' : 'right' %> reveal">
-            <div class="timeline-item-content">
-              <div class="timeline-item-icon"><i class="fas <%= item.icon %>"></i></div>
-              <div class="timeline-item-title"><%= tlLabel %></div>
-              <div class="timeline-item-year"><%= item.year %></div>
-              <ul class="timeline-item-desc">
-                <% tlEvents.forEach(function(ev) { %>
-                  <li><%= ev %></li>
-                <% }); %>
-              </ul>
-            </div>
-            <div class="timeline-item-center">
-              <div class="timeline-dot"><div class="timeline-dot-glow"></div></div>
-            </div>
-            <div></div>
-          </div>
-        <% }); %>
+          <% var tlEvents=lang==='en' && item.eventsEn ? item.eventsEn : item.events; %>
+            <% var tlLabel=lang==='en' && item.labelEn ? item.labelEn : item.label; %>
+              <div class="timeline-item <%= i % 2 === 0 ? 'left' : 'right' %> reveal">
+                <div class="timeline-item-content">
+                  <div class="timeline-item-icon"><i class="fas <%= item.icon %>"></i></div>
+                  <div class="timeline-item-title">
+                    <%= tlLabel %>
+                  </div>
+                  <div class="timeline-item-year">
+                    <%= item.year %>
+                  </div>
+                  <ul class="timeline-item-desc">
+                    <% tlEvents.forEach(function(ev) { %>
+                      <li>
+                        <%= ev %>
+                      </li>
+                      <% }); %>
+                  </ul>
+                </div>
+                <div class="timeline-item-center">
+                  <div class="timeline-dot">
+                    <div class="timeline-dot-glow"></div>
+                  </div>
+                </div>
+                <div></div>
+              </div>
+              <% }); %>
       </div>
     </div>
   </div>
